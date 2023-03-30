@@ -1,0 +1,117 @@
+{
+  "name": "nucal-ui-application",
+  "version": "0.1.0",
+  "description": "NUCAL frontend application",
+  "scripts": {
+    "setup": "npm install && vue-cli-service lint --fix",
+    "lint": "vue-cli-service lint",
+    "fix": "eslint --fix .",
+    "build:web": "vue-cli-service build --mode production.web --env.production --env.web",
+    "serve:web": "vue-cli-service serve --mode development.web --env.development --env.web",
+    "setup-webpack-config": "node ./node_modules/vue-cli-plugin-vuexp/lib/scripts/webpack-maintenance pre",
+    "version-check": "vue -V && nativescript --version && pod --version && npm -v && node -v && tns --version && xcodebuild -version",
+    "remove-webpack-config": "node ./node_modules/vue-cli-plugin-vuexp/lib/scripts/webpack-maintenance post"
+  },
+  "dependencies": {
+    "lodash-es": "4.17.15",
+    "nucal-widget-lib": "0.13.3",
+    "vue": "2.7.14",
+    "vue-router": "3.6.5"
+  },
+  "devDependencies": {
+    "@babel/core": "7.4.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "7.10.4",
+    "@babel/plugin-proposal-optional-chaining": "7.10.4",
+    "@babel/preset-env": "7.4.1",
+    "@babel/traverse": "7.4.0",
+    "@vue/cli-plugin-babel": "4.0.5",
+    "@vue/cli-plugin-e2e-nightwatch": "4.0.5",
+    "@vue/cli-plugin-eslint": "4.0.5",
+    "@vue/cli-plugin-unit-mocha": "4.0.5",
+    "@vue/cli-service": "4.0.5",
+    "@vue/eslint-config-airbnb": "4.0.0",
+    "@vue/eslint-config-prettier": "4.0.1",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-eslint": "10.0.1",
+    "babel-loader": "8.0.5",
+    "copy-webpack-plugin": "5.0.3",
+    "cross-env": "5.2.0",
+    "cross-fetch": "3.0.3",
+    "eslint": "5.8.0",
+    "eslint-plugin-vue": "5.0.0",
+    "lint-staged": "8.1.7",
+    "node-sass": "4.13.0",
+    "rimraf": "2.6.3",
+    "sass-loader": "8.0.0",
+    "string-replace-loader": "2.1.1",
+    "vue-template-compiler": "2.7.14",
+    "webpack": "4.41.2",
+    "webpack-cli": "3.3.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "@vue/airbnb",
+      "@vue/prettier"
+    ],
+    "rules": {
+      "import/no-extraneous-dependencies": 0,
+      "import/prefer-default-export": 0,
+      "import/no-cycle": 0,
+      "no-console": 1,
+      "import/extensions": 0,
+      "global-require": 0,
+      "eol-last": 0,
+      "no-param-reassign": 0,
+      "object-curly-newline": 0,
+      "no-plusplus": 0,
+      "max-len": [
+        1,
+        {
+          "code": 9999
+        }
+      ],
+      "prefer-destructuring": [
+        2,
+        {
+          "object": true,
+          "array": false
+        }
+      ],
+      "no-irregular-whitespace": 0
+    },
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 160,
+    "trailingComma": "all"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "eslintIgnore": [
+    "webpack.config.js"
+  ],
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
